@@ -1,0 +1,7 @@
+*.sqlite3
+*~
+*.swp
+*.swn
+*.swo
+__pycache__
+.DS_STORE

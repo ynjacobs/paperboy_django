@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Paper delivery</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+  </head>
+  <body>
+    <header class='site-heading'>
+      <h1>Paperboys</h1>
+    </header>
+    <section class='summary'>
+      <p>Total papers delivered: <em class='stats'>{{ total_papers }}</em></p>
+      <p>Total payment earned: <em class='stats'>${{ total_earnings }}</em></p>
+    </section>
+    <ul>
+      {% for pb in paperboys %}
+        <li class='paperboy'>
+          <h2 class='paperboy-heading'>{{ pb.name }}</h2>
+          <p>{{ pb.report }}</p>
+          <form class='deliver-form' action="{% url 'deliver' id=pb.id %}" method='post'>
+            {% csrf_token %}
+            <div class='field'>
+              <label for="ad1">Starting house number</label>
+              <input type="number" name='address1' id='ad1'>
+            </div>
+
+            <div class='field'>
+              <label for="ad2">Final house number</label>
+              <input type="number" name='address2' id='ad2'>
+            </div>
+
+            <div class='field'>
+              <input type="submit" value='Deliver!' class='deliver-button'>
+            </div>
+          </form>
+
+        </li>
+      {% endfor %}
+    </ul>
+
+  </body>
+</html>

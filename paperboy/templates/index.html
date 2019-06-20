@@ -17,13 +17,13 @@
     <ul>
       {% for pb in paperboys %}
         <li class='paperboy'>
-          <h2 class='paperboy-heading'>{{ pb.name }}</h2>
+          <h2 class='paperboy-heading'><a href="{% url 'details' id=pb.id %}" >{{ pb.name }}</a></h2>
           <p>{{ pb.report }}</p>
           <form class='deliver-form' action="{% url 'deliver' id=pb.id %}" method='post'>
             {% csrf_token %}
             <div class='field'>
               <label for="ad1">Starting house number</label>
-              <input type="number" name='address1' id='ad1'>
+              <input type="number" name='address1' id='ad1'> 
             </div>
 
             <div class='field'>

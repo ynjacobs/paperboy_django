@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Paper delivery</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+  </head>
+  <body>
+       <ul>
+            <li>Name: {{ paperboy.name }}</li>
+
+            <li>Earnings: ${{ paperboy.earnings }}</li>
+
+            <li>Experience:{{ paperboy.experience}}</li>
+            
+       </ul>
+       <a href="{% url 'home' %}">Go Home</a>
+  </body>
+</html>
